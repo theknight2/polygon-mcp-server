@@ -2,7 +2,7 @@ name: polygon-mcp-server
 description: "🚀 Advanced Polygon.io MCP Server with Options Analytics, Greeks, and Real-time Market Data"
 
 # Main server file
-main: polygon_mcp_server_sse.py
+main: polygon_mcp_server_clean.py
 
 # Environment variables required
 env:
