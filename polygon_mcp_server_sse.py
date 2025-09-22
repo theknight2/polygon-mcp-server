@@ -377,13 +377,13 @@ async def stock_price_resource(symbol: str) -> str:
 # Main entry point for SSE
 def create_app():
     """Create the FastAPI app for SSE transport"""
+    # Add health check endpoint to the underlying FastAPI app
+    @mcp.app.get("/health")
+    async def health_check():
+        """Health check endpoint for cloud deployment"""
+        return {"status": "healthy", "service": "polygon-mcp-server"}
+    
     return mcp
-
-# Add health check endpoint
-@mcp.get("/health")
-async def health_check():
-    """Health check endpoint for cloud deployment"""
-    return {"status": "healthy", "service": "polygon-mcp-server"}
 
 if __name__ == "__main__":
     import uvicorn
