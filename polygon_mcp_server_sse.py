@@ -374,15 +374,15 @@ async def stock_price_resource(symbol: str) -> str:
     """Stock price data as a resource"""
     return await get_stock_price(symbol)
 
+# Add health check endpoint using FastMCP custom route
+@mcp.custom_route("/health", methods=["GET"])
+async def health_check(request) -> dict:
+    """Health check endpoint for cloud deployment"""
+    return {"status": "healthy", "service": "polygon-mcp-server"}
+
 # Main entry point for SSE
 def create_app():
     """Create the FastAPI app for SSE transport"""
-    # Add health check endpoint to the underlying FastAPI app
-    @mcp.app.get("/health")
-    async def health_check():
-        """Health check endpoint for cloud deployment"""
-        return {"status": "healthy", "service": "polygon-mcp-server"}
-    
     return mcp
 
 if __name__ == "__main__":
