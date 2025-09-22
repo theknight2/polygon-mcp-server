@@ -1,0 +1,1 @@
+web: uv run polygon_mcp_server_sse.py 

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "polygon-advanced": {
+      "command": "uv",
+      "args": [
+        "run",
+        "polygon_mcp_server.py"
+      ],
+      "env": {
+        "POLYGON_API_KEY": "your_polygon_api_key_here"
+      }
+    }
+  }
+} 
