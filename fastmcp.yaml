@@ -1,0 +1,32 @@
+name: polygon-mcp-server
+description: "🚀 Advanced Polygon.io MCP Server with Options Analytics, Greeks, and Real-time Market Data"
+
+# Main server file
+main: polygon_mcp_server_sse.py
+
+# Environment variables required
+env:
+  - POLYGON_API_KEY
+
+# Python version
+python: "3.11"
+
+# Dependencies
+requirements: pyproject.toml
+
+# Health check endpoint
+health_check: "/health"
+
+# Server metadata
+metadata:
+  version: "1.0.0"
+  author: "theknight2"
+  tags: ["finance", "options", "trading", "polygon", "market-data", "greeks"]
+  
+# OAuth settings (optional)
+oauth:
+  enabled: false  # Set to true if you want OAuth protection
+  
+# Rate limiting
+rate_limit:
+  requests_per_minute: 100 
